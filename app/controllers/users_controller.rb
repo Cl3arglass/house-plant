@@ -16,6 +16,13 @@ class UsersController < ApplicationController
   end
 
   def show
+    if !session.include?(:user_id)
+      redirect_to '/'
+    else
+      @user = User.find(params[:id])
+
+      render :show
+    end
   end
 
   private
