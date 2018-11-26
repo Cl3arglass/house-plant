@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   
+  
   resources :users do
   # , :only => [:new, :create, :edit, :update, :show]
     resources :plants
