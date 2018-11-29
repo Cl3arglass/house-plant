@@ -1,2 +1,21 @@
 <h1>Plants#new</h1>
 <p>Find me in app/views/plants/new.html.erb</p>
+
+<%=form_for([@user, @plant]) do |f|%>
+  <%=f.label :name, "Name"%>
+  <%=f.text_field :name%><br><br>
+
+  <%=f.label :light, "Light"%>
+  <%=f.text_field :light%><br><br>
+
+  <%=f.label :watering, "Watering"%>
+  <%=f.text_field :watering%><br><br>
+
+
+  <%=f.fields_for :comment_new, @plant.build_comment do |com_field|%>
+    <%=com_field.label :note, "Leave a note"%>
+    <%=com_field.text_field :note%><br><br>
+  <%end%>
+
+  <%=f.submit "Create Plant"%>
+<%end%>
