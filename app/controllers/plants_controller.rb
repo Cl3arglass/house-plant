@@ -26,6 +26,7 @@ class PlantsController < ApplicationController
   end
 
   def index
+    @plants = @user.plants
   end
 
   def show

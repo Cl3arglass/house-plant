@@ -1,2 +1,8 @@
 <h1>Plants#index</h1>
 <p>Find me in app/views/plants/index.html.erb</p>
+
+<h1>Your Plants:</h1><br>
+
+<% @plants.each do |p| %>
+<p><%= p.name %></p>
+<% end %>
