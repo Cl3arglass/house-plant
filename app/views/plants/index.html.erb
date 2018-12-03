@@ -3,7 +3,7 @@
 
 <h1>Your Plants:</h1><br>
 
-<% @plants.each do |p| %>
+<% @plants.by_name.each do |p| %>
 <p><%= p.name %></p>  
 <p><%= link_to "View Plant", user_plant_path(current_user, p.id) %></p>
 
