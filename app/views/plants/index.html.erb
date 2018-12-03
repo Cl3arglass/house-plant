@@ -4,7 +4,8 @@
 <h1>Your Plants:</h1><br>
 
 <% @plants.each do |p| %>
-<p><%= p.name %></p>
+<p><%= p.name %></p>  <p><%= link_to "View Plant", user_plant_path(current_user, p.id) %></p>
+
 <% end %>
 
 <p><%= link_to "Add New Plant", new_user_plant_path(current_user) %></p>
