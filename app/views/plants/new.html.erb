@@ -1,6 +1,14 @@
 <h1>Plants#new</h1>
 <p>Find me in app/views/plants/new.html.erb</p>
 
+<%if @plant.errors.any?%>
+  <ul>
+    <%@plant.errors.full_messages.each do |message|%>
+    <li class="notice"><strong><%=message%></strong></li>
+      <%end%>
+  </ul>
+  <%end%><br>
+
 <% if flash[:notice] %>
     <div class="notice"><%= flash[:notice] %></div><br>
   <% end %>

@@ -30,7 +30,7 @@ class PlantsController < ApplicationController
   end
 
   def show
-    @plant = Plant.find(params[:id])
+    @plant = @user.plants.find(params[:id])
   end
 
   private
