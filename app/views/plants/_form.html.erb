@@ -1,0 +1,30 @@
+<%if @plant.errors.any?%>
+  <ul>
+    <%@plant.errors.full_messages.each do |message|%>
+    <li class="notice"><strong><%=message%></strong></li>
+      <%end%>
+  </ul>
+  <%end%><br>
+
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div><br>
+  <% end %>
+
+<%=form_for([@user, @plant]) do |f|%>
+  <%=f.label :name, "Name"%>
+  <%=f.text_field :name%><br><br>
+
+  <%=f.label :light, "Light"%>
+  <%=f.text_field :light%><br><br>
+
+  <%=f.label :watering, "Watering"%>
+  <%=f.text_field :watering%><br><br>
+
+
+  <%=f.fields_for :comment_new, @plant.build_comment do |com_field|%>
+    <%=com_field.label :note, "Leave a note"%>
+    <%=com_field.text_field :note%><br><br>
+  <%end%>
+
+  <%=f.submit %>
+<%end%>
