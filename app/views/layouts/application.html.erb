@@ -23,6 +23,7 @@
       <% end %>
       <% if current_user %>
         <a href="<%= user_plants_path(current_user) %>">My Account</a>
+        <a href="<%= new_user_plant_path(current_user) %>">Add New Plant</a>
         <a href="<%= logout_path %>">Log Out</a>
       <% end %>
       
