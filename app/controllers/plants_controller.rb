@@ -17,9 +17,21 @@ class PlantsController < ApplicationController
   end
 
   def edit
+    @plant = @user.plants.find(params[:id])
+    if !user_valid?
+      redirect_to user_plants_path(current_user)
+    end
   end
 
   def update
+    @plant = @user.plants.find(params[:id])
+    if user_valid? && @plant.update(plant_params)
+        redirect_to user_plants_path(@user)
+    elsif !@plant.update(plant_params)
+        render 'edit'
+    else
+      redirect_to user_plants_path(current_user)
+    end
   end
 
   def destroy
