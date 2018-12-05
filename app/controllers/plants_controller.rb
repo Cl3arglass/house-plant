@@ -35,6 +35,15 @@ class PlantsController < ApplicationController
   end
 
   def destroy
+     @plant = @user.plants.find(params[:id])
+     if user_valid? && @plant
+      @plant.destroy
+      flash[:notice] = "Plant gone"
+      redirect_to user_plants_path(@user)
+    else
+      flash[:notice] = "Try Again"
+      redirect_to user_plants_path(current_user)
+    end
   end
 
   def index

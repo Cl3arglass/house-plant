@@ -3,9 +3,14 @@
 
 <h1>Your Plants:</h1><br>
 
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div><br>
+  <% end %>
+
 <% @plants.by_name.each do |p| %>
 <p><%= p.name %></p>  
 <p><%= link_to "View Plant", user_plant_path(current_user, p.id) %></p>
+<p><%= link_to "Delete", [current_user, p], method: :delete, data: { confirm: "Really?" } %></p>
 
 <% end %>
 
