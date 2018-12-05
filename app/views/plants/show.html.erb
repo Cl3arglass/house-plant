@@ -3,8 +3,11 @@
 
 <h2><%= @plant.name %></h2>
 
+
 <p>Light: <%= @plant.light %></p> <br>
 
 <p>Watering: <%= @plant.watering %></p> <br>
 
 <p>Note: <%= @plant.comment.note %></p>
+
+<p><%= link_to "Edit Plant", edit_user_plant_path(current_user, @plant.id) %></p>
