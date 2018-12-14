@@ -1,6 +1,10 @@
 <h1>Plants#show</h1>
 <p>Find me in app/views/plants/show.html.erb</p>
 
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div><br>
+  <% end %>
+
 <h2><%= @plant.name %></h2>
 
 
