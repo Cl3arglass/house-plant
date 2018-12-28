@@ -1,0 +1,14 @@
+
+
+<h1>All Comments</h1><br>
+
+<% @comments.each do |c| %>
+<% if c.plants.length > 0 %>
+<h3><%= c.note %></h3> 
+<p>Was given to:</p> 
+	<% c.plants.each do |p| %>
+         <p><%= p.name %></p>
+	<% end %>
+	<br><br>
+  <% end %>
+<% end %>

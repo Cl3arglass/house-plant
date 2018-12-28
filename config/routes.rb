@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   
   
+  get 'comments/index'
   resources :users do
   # , :only => [:new, :create, :edit, :update, :show]
     resources :plants

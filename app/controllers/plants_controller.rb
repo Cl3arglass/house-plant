@@ -11,7 +11,7 @@ class PlantsController < ApplicationController
     if user_valid? && @plant.save
       redirect_to user_plants_path(@user)
     else
-      flash[:notice] = "Try Again"
+      # flash[:notice] = "Try Again"
       render 'new'
     end
   end
