@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     else
       render 'users/new'
     end
-  end
+  end 
 
   def edit
   end
