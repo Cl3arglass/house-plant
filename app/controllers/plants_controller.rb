@@ -56,6 +56,8 @@ class PlantsController < ApplicationController
       # @plant = Plant.find(params[:id])
 
     plant_user_valid?
+
+    render 'plants/show', :layout => false
   end
 
   private

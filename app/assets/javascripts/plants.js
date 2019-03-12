@@ -1,10 +1,12 @@
 $(document).ready(function() {
 	$("a.plant_view").on("click", function(e) {
-	$.ajax({
+	$.ajax({ 
 	  method: "GET",
 	  url: this.href
 	}).done(function(data) {
-	  console.log(data)
+	  var $div = $(".plant_content")
+	  $div.empty();
+	  $div.append(data);
 	});
 	e.preventDefault();
   })

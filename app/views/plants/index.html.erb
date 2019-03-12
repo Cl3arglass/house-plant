@@ -1,6 +1,8 @@
 
 <h1>Your Plants:</h1><br>
 
+<div class="plant_content"></div>
+
 <% if flash[:notice] %>
     <div class="notice"><%= flash[:notice] %></div><br>
   <% end %>
@@ -9,6 +11,7 @@
 <p><%= p.name %></p>  
 <p><%= link_to "View Plant", user_plant_path(current_user, p.id), class: "plant_view" %></p>
 <p><%= link_to "Delete", [current_user, p], method: :delete, data: { confirm: "Really?" } %></p>
+
 
 <% end %>
 
