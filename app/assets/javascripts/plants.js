@@ -1,13 +1,12 @@
 $(document).ready(function() {
 	$("a.plant_view").on("click", function(e) {
-	$.ajax({ 
-	  method: "GET",
-	  url: this.href
-	}).done(function(data) {
+	
+
+	$.getJSON(this.href).success(function(json) {
 	  var $div = $(".plant_content")
 	  $div.empty();
-	  $div.append(data);
-	});
+	  console.log(json)
+	})
 	e.preventDefault();
   })
 })
