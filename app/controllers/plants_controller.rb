@@ -57,7 +57,12 @@ class PlantsController < ApplicationController
 
     plant_user_valid?
 
-    render 'plants/show', :layout => false
+    # render 'plants/show', :layout => false
+    # render :json => @plant
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @plant}
+    end
   end
 
   private
