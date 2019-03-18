@@ -1,3 +1,21 @@
+function Plant(attributes) {
+	this.id = attributes.id;
+	this.name = attributes.name;
+	this.light = attributes.light;
+	this.watering = attributes.watering;
+	this.comment = attributes.comment.note;
+}
+
+$(function(){
+	Plant.templateSource = $("#plant-template").html();
+	Plant.template = Handlebars.compile(Plant.templateSource);
+})
+
+Plant.prototype.renderContent = function() {
+	return Plant.template(this);
+}
+
+
 $(document).ready(function() {
 	$("a.plant_view").on("click", function(e) {
 	
@@ -5,7 +23,11 @@ $(document).ready(function() {
 	$.getJSON(this.href).success(function(json) {
 	  var $div = $(".plant_content")
 	  $div.empty();
-	  console.log(json)
+	  
+	  var plant = new Plant(json);
+	  var plantContent = plant.renderContent()
+
+	  $div.append(plantContent)
 	})
 	e.preventDefault();
   })
