@@ -6,10 +6,7 @@ function Plant(attributes) {
 	this.comment = attributes.comment.note;
 }
 
-$(function(){
-	Plant.templateSource = $("#plant-template").html();
-	Plant.template = Handlebars.compile(Plant.templateSource);
-})
+
 
 Plant.prototype.renderContent = function() {
 	return Plant.template(this);
@@ -25,6 +22,8 @@ $(document).ready(function() {
 	  $div.empty();
 	  
 	  var plant = new Plant(json);
+	  Plant.templateSource = $("#plant-template").html();
+	  Plant.template = Handlebars.compile(Plant.templateSource);
 	  var plantContent = plant.renderContent()
 
 	  $div.append(plantContent)
