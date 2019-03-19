@@ -6,10 +6,20 @@ function Plant(attributes) {
 	this.comment = attributes.comment.note;
 }
 
-
+$(function(){
+	Plant.templateSource = $("#plant-template").html();
+	Plant.template = Handlebars.compile(Plant.templateSource);
+})
 
 Plant.prototype.renderContent = function() {
 	return Plant.template(this);
+}
+
+Plant.edit = function(){
+	$("a.plant_edit").on("click", function(e) {
+	   e.preventDefault()
+	   console.log("EDIT")
+	})
 }
 
 
@@ -22,12 +32,15 @@ $(document).ready(function() {
 	  $div.empty();
 	  
 	  var plant = new Plant(json);
-	  Plant.templateSource = $("#plant-template").html();
-	  Plant.template = Handlebars.compile(Plant.templateSource);
 	  var plantContent = plant.renderContent()
 
 	  $div.append(plantContent)
+      Plant.edit()
+	  
 	})
 	e.preventDefault();
   })
 })
+
+
+
