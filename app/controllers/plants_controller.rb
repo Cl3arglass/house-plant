@@ -21,6 +21,7 @@ class PlantsController < ApplicationController
     if !user_valid?
       redirect_to user_plants_path(current_user)
     end
+    render layout: false
   end
 
   def update

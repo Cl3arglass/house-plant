@@ -17,8 +17,19 @@ Plant.prototype.renderContent = function() {
 
 Plant.edit = function(){
 	$("a.plant_edit").on("click", function(e) {
+	
+	$.get(this.href).success(function(response) {
+	  var $div = $(".plant_content")
+	  $div.empty();
+	  
+	  
+
+	  $div.append(response)
+      
+	  
+	})
 	   e.preventDefault()
-	   console.log("EDIT")
+	   
 	})
 }
 
