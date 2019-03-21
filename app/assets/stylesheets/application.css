@@ -159,8 +159,13 @@
     color: red;
 }
 
+ /* --- Users Plants Index  --- */
 
-
+ .comments {
+    float: right;
+    margin-right: 150px;
+    font-size: large;
+ }
 
 
 
