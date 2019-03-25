@@ -9,7 +9,10 @@ class PlantsController < ApplicationController
   def create
     @plant = @user.plants.build(plant_params)
     if user_valid? && @plant.save
-      redirect_to user_plants_path(@user)
+      respond_to do |format|
+      format.html { redirect_to user_plants_path(@user) }
+      format.json { render json: @plant}
+    end
     else
       # flash[:notice] = "Try Again"
       render 'new'
