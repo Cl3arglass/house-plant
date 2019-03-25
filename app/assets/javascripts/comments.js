@@ -3,7 +3,14 @@ $(document).ready(function() {
 	
 
 	$.getJSON(this.href).success(function(json) {
-	  console.log(json)
+	  var $ol = $("div.comments ol");
+	  $ol.html("");
+
+	  json.forEach(function(comment){
+	  	if (comment.note) {
+	  	  $ol.append("<li>" + "*"+ comment.note + "</li>");
+	  	}
+	  })
 	  
 	})
 	e.preventDefault();

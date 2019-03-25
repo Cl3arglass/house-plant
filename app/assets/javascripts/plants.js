@@ -6,10 +6,10 @@ function Plant(attributes) {
 	this.comment = attributes.comment.note;
 }
 
-$(function(){
-	Plant.templateSource = $("#plant-template").html();
-	Plant.template = Handlebars.compile(Plant.templateSource);
-})
+// $(function(){
+// 	Plant.templateSource = $("#plant-template").html();
+// 	Plant.template = Handlebars.compile(Plant.templateSource);
+// })
 
 Plant.prototype.renderContent = function() {
 	return Plant.template(this);
@@ -36,6 +36,8 @@ Plant.edit = function(){
 
 $(document).ready(function() {
 	$("a.plant_view").on("click", function(e) {
+    Plant.templateSource = $("#plant-template").html();
+	Plant.template = Handlebars.compile(Plant.templateSource);
 	
 
 	$.getJSON(this.href).success(function(json) {
@@ -51,6 +53,13 @@ $(document).ready(function() {
 	})
 	e.preventDefault();
   })
+})
+
+$(function(){
+	$("form#new_plant").on("submit", function(e){
+		e.preventDefault()
+		console.log("captured!!")
+	})
 })
 
 
