@@ -3,3 +3,22 @@
 
 <%=render partial: 'form', locals: {user: @user, plant:@plant}%>
 
+<div class="plant_content"></div>
+
+<script id="plant-template" type="text/x-handlebars-template">
+
+<br>       
+<h2>{{name}}</h2>
+
+
+<p>Light: {{light}}</p> <br>
+
+<p>Watering: {{watering}}</p> <br>
+
+<p>Note: {{comment}}</p> 
+
+<p><a class="plant_edit" href="/users/<%= @user.id %>/plants/{{id}}/edit">Edit 
+Plant</a></p><br>
+
+<p>*  *  *</p>
+</script>
