@@ -6,9 +6,17 @@ $(document).ready(function() {
 	  var $ol = $("div.comments ol");
 	  $ol.html("");
 
+
 	  json.forEach(function(comment){
 	  	if (comment.note) {
-	  	  $ol.append("<li>" + "*"+ comment.note + "</li>");
+	  	  $ol.append("<li>" + "#"+ comment.note + "</li>");
+	  	  if (comment.plants.length) {
+	  	  $ol.append("This comment has these plants:");
+	  	  comment.plants.forEach(function(plant) {
+	  	  	$ol.append("<li>" + "-"+ plant.name + "</li>");
+	  	  })
+	  	 }
+	  	 $ol.append("<br>")
 	  	}
 	  })
 	  
